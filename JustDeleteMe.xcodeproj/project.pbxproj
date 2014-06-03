@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		64070FFB193E8E090039E590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64070FFA193E8E090039E590 /* AppDelegate.swift */; };
+		64070FFE193E8E090039E590 /* JustDeleteMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 64070FFC193E8E090039E590 /* JustDeleteMe.xcdatamodeld */; };
+		64071000193E8E090039E590 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64070FFF193E8E090039E590 /* ViewController.swift */; };
+		64071003193E8E090039E590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64071001193E8E090039E590 /* Main.storyboard */; };
+		64071005193E8E090039E590 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64071004193E8E090039E590 /* Images.xcassets */; };
+		64071011193E8E090039E590 /* JustDeleteMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64071010193E8E090039E590 /* JustDeleteMeTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6407100B193E8E090039E590 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64070FED193E8E090039E590 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64070FF4193E8E090039E590;
+			remoteInfo = JustDeleteMe;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		64070FF5193E8E090039E590 /* JustDeleteMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustDeleteMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		64070FF9193E8E090039E590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64070FFA193E8E090039E590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		64070FFD193E8E090039E590 /* JustDeleteMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JustDeleteMe.xcdatamodel; sourceTree = "<group>"; };
+		64070FFF193E8E090039E590 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		64071002193E8E090039E590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		64071004193E8E090039E590 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6407100A193E8E090039E590 /* JustDeleteMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustDeleteMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6407100F193E8E090039E590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64071010193E8E090039E590 /* JustDeleteMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDeleteMeTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		64070FF2193E8E090039E590 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64071007193E8E090039E590 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		64070FEC193E8E090039E590 = {
+			isa = PBXGroup;
+			children = (
+				64070FF7193E8E090039E590 /* JustDeleteMe */,
+				6407100D193E8E090039E590 /* JustDeleteMeTests */,
+				64070FF6193E8E090039E590 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		64070FF6193E8E090039E590 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				64070FF5193E8E090039E590 /* JustDeleteMe.app */,
+				6407100A193E8E090039E590 /* JustDeleteMeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		64070FF7193E8E090039E590 /* JustDeleteMe */ = {
+			isa = PBXGroup;
+			children = (
+				64070FFA193E8E090039E590 /* AppDelegate.swift */,
+				64070FFF193E8E090039E590 /* ViewController.swift */,
+				64071001193E8E090039E590 /* Main.storyboard */,
+				64071004193E8E090039E590 /* Images.xcassets */,
+				64070FFC193E8E090039E590 /* JustDeleteMe.xcdatamodeld */,
+				64070FF8193E8E090039E590 /* Supporting Files */,
+			);
+			path = JustDeleteMe;
+			sourceTree = "<group>";
+		};
+		64070FF8193E8E090039E590 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				64070FF9193E8E090039E590 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6407100D193E8E090039E590 /* JustDeleteMeTests */ = {
+			isa = PBXGroup;
+			children = (
+				64071010193E8E090039E590 /* JustDeleteMeTests.swift */,
+				6407100E193E8E090039E590 /* Supporting Files */,
+			);
+			path = JustDeleteMeTests;
+			sourceTree = "<group>";
+		};
+		6407100E193E8E090039E590 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6407100F193E8E090039E590 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		64070FF4193E8E090039E590 /* JustDeleteMe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64071014193E8E090039E590 /* Build configuration list for PBXNativeTarget "JustDeleteMe" */;
+			buildPhases = (
+				64070FF1193E8E090039E590 /* Sources */,
+				64070FF2193E8E090039E590 /* Frameworks */,
+				64070FF3193E8E090039E590 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JustDeleteMe;
+			productName = JustDeleteMe;
+			productReference = 64070FF5193E8E090039E590 /* JustDeleteMe.app */;
+			productType = "com.apple.product-type.application";
+		};
+		64071009193E8E090039E590 /* JustDeleteMeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64071017193E8E090039E590 /* Build configuration list for PBXNativeTarget "JustDeleteMeTests" */;
+			buildPhases = (
+				64071006193E8E090039E590 /* Sources */,
+				64071007193E8E090039E590 /* Frameworks */,
+				64071008193E8E090039E590 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6407100C193E8E090039E590 /* PBXTargetDependency */,
+			);
+			name = JustDeleteMeTests;
+			productName = JustDeleteMeTests;
+			productReference = 6407100A193E8E090039E590 /* JustDeleteMeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		64070FED193E8E090039E590 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Dan Harper";
+				TargetAttributes = {
+					64070FF4193E8E090039E590 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					64071009193E8E090039E590 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 64070FF4193E8E090039E590;
+					};
+				};
+			};
+			buildConfigurationList = 64070FF0193E8E090039E590 /* Build configuration list for PBXProject "JustDeleteMe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 64070FEC193E8E090039E590;
+			productRefGroup = 64070FF6193E8E090039E590 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				64070FF4193E8E090039E590 /* JustDeleteMe */,
+				64071009193E8E090039E590 /* JustDeleteMeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		64070FF3193E8E090039E590 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64071003193E8E090039E590 /* Main.storyboard in Resources */,
+				64071005193E8E090039E590 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64071008193E8E090039E590 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		64070FF1193E8E090039E590 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64071000193E8E090039E590 /* ViewController.swift in Sources */,
+				64070FFE193E8E090039E590 /* JustDeleteMe.xcdatamodeld in Sources */,
+				64070FFB193E8E090039E590 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64071006193E8E090039E590 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64071011193E8E090039E590 /* JustDeleteMeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6407100C193E8E090039E590 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64070FF4193E8E090039E590 /* JustDeleteMe */;
+			targetProxy = 6407100B193E8E090039E590 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		64071001193E8E090039E590 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				64071002193E8E090039E590 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		64071012193E8E090039E590 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		64071013193E8E090039E590 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		64071015193E8E090039E590 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = JustDeleteMe/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		64071016193E8E090039E590 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = JustDeleteMe/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		64071018193E8E090039E590 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JustDeleteMe.app/JustDeleteMe";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = JustDeleteMeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		64071019193E8E090039E590 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JustDeleteMe.app/JustDeleteMe";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = JustDeleteMeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		64070FF0193E8E090039E590 /* Build configuration list for PBXProject "JustDeleteMe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64071012193E8E090039E590 /* Debug */,
+				64071013193E8E090039E590 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64071014193E8E090039E590 /* Build configuration list for PBXNativeTarget "JustDeleteMe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64071015193E8E090039E590 /* Debug */,
+				64071016193E8E090039E590 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		64071017193E8E090039E590 /* Build configuration list for PBXNativeTarget "JustDeleteMeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64071018193E8E090039E590 /* Debug */,
+				64071019193E8E090039E590 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		64070FFC193E8E090039E590 /* JustDeleteMe.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				64070FFD193E8E090039E590 /* JustDeleteMe.xcdatamodel */,
+			);
+			currentVersion = 64070FFD193E8E090039E590 /* JustDeleteMe.xcdatamodel */;
+			path = JustDeleteMe.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 64070FED193E8E090039E590 /* Project object */;
+}
