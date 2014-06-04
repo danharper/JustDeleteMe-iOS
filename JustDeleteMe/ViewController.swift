@@ -15,6 +15,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var allSites: JDMSite[] = []
     var currentSites: JDMSite[] = []
     
+    var colours: Dictionary<String, UIColor> = [
+        "easy": UIColor(red: 123/255, green: 172/255, blue: 123/255, alpha: 1),
+        "medium": UIColor(red: 232/255, green: 198/255, blue: 116/255, alpha: 1),
+        "hard": UIColor(red: 207/255, green: 90/255, blue: 90/255, alpha: 1),
+        "impossible": UIColor(red: 43/255, green: 42/255, blue: 43/255, alpha: 1)
+    ]
+    
     var jdm: JustDeleteMe = JustDeleteMe()
                             
     override func viewDidLoad() {
@@ -43,7 +50,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "foo")
         
         cell.text = site.name
-        cell.detailTextLabel.text = site.difficulty + (site.domain ? " \(site.domain)" : "")
+        cell.detailTextLabel.text = site.domain ? " \(site.domain)" : ""
+        cell.textColor = colours[site.difficulty]
         
         return cell
     }
@@ -59,25 +67,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func searchBar(searchBar: UISearchBar!, textDidChange searchText: String!) {
-        println(searchBar.text)
-        let text = searchText // lowecaseString EXC_BAD_ACCESS ??!
-        currentSites = allSites.filter({
-            site in site.name.lowercaseString.hasPrefix(text)
-        })
-        println("New: \(currentSites.count)")
+        println(searchBar.text) // lowecaseString EXC_BAD_ACCESS ??!
+        
+        if searchText.isEmpty {
+            currentSites = allSites
+        }
+        else {
+            currentSites = allSites.filter({
+                site in site.name.lowercaseString.hasPrefix(searchText)
+            })
+        }
+        
         sitesTable.reloadData()
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar!) {
-//        sitesTable.reloadData()
     }
     
     func didReceiveSites(sites: JDMSite[]) {
         allSites = sites
         currentSites = allSites
-//        sitesData = .filter({
-//            site in site.difficulty == "impossible"
-//        })
         sitesTable.reloadData()
     }
 
