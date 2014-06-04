@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet var sitesTable: UITableView
 
-    var sitesData: NSArray = NSArray()
+    var sitesData: JDMSite[] = []
     
     var jdm: JustDeleteMe = JustDeleteMe()
                             
@@ -36,29 +36,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let site = sitesData[indexPath.item] as Dictionary<String, String>
+        let site = sitesData[indexPath.item]
         
 //        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("foo", forIndexPath: indexPath) as UITableViewCell
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "foo")
         
-        cell.text = site["name"]
-        cell.detailTextLabel.text = site["difficulty"]
+        cell.text = site.name
+        cell.detailTextLabel.text = site.difficulty + (site.domain ? " \(site.domain)" : "")
         
         return cell
     }
 
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        let site = sitesData[indexPath.item] as Dictionary<String, String>
+        let site = sitesData[indexPath.item]
         let alert = UIAlertView()
-        alert.title = site["name"]
-        alert.message = site["difficulty"]
+        alert.title = site.name
+        alert.message = site.difficulty
         alert.addButtonWithTitle("Ok, Cool")
         alert.show()
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    func didReceiveSites(sites: NSArray) {
-        sitesData = sites
+    func didReceiveSites(sites: JDMSite[]) {
+        sitesData = sites.filter({
+            site in site.difficulty == "impossible"
+        })
         sitesTable.reloadData()
     }
 
