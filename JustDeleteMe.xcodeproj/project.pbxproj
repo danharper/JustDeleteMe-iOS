@@ -13,6 +13,7 @@
 		64071003193E8E090039E590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64071001193E8E090039E590 /* Main.storyboard */; };
 		64071005193E8E090039E590 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64071004193E8E090039E590 /* Images.xcassets */; };
 		64071011193E8E090039E590 /* JustDeleteMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64071010193E8E090039E590 /* JustDeleteMeTests.swift */; };
+		6407101B193E91800039E590 /* JustDeleteMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6407101A193E91800039E590 /* JustDeleteMe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		6407100A193E8E090039E590 /* JustDeleteMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustDeleteMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6407100F193E8E090039E590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64071010193E8E090039E590 /* JustDeleteMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDeleteMeTests.swift; sourceTree = "<group>"; };
+		6407101A193E91800039E590 /* JustDeleteMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JustDeleteMe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				64071004193E8E090039E590 /* Images.xcassets */,
 				64070FFC193E8E090039E590 /* JustDeleteMe.xcdatamodeld */,
 				64070FF8193E8E090039E590 /* Supporting Files */,
+				6407101A193E91800039E590 /* JustDeleteMe.swift */,
 			);
 			path = JustDeleteMe;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6407101B193E91800039E590 /* JustDeleteMe.swift in Sources */,
 				64071000193E8E090039E590 /* ViewController.swift in Sources */,
 				64070FFE193E8E090039E590 /* JustDeleteMe.xcdatamodeld in Sources */,
 				64070FFB193E8E090039E590 /* AppDelegate.swift in Sources */,
@@ -403,6 +407,7 @@
 				64071016193E8E090039E590 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		64071017193E8E090039E590 /* Build configuration list for PBXNativeTarget "JustDeleteMeTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +416,7 @@
 				64071019193E8E090039E590 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
