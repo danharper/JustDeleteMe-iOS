@@ -8,12 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, JustDeleteMeDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UIAlertViewDelegate, JustDeleteMeDelegate {
     
     @IBOutlet var sitesTable: UITableView
 
     var allSites: JDMSite[] = []
     var currentSites: JDMSite[] = []
+    
+    var selectedSite: JDMSite?
     
     var colours: Dictionary<String, UIColor> = [
         "easy": UIColor(red: 123/255, green: 172/255, blue: 123/255, alpha: 1),
@@ -26,17 +28,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                             
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // part of dequeueReusableCell..
+        // sitesTable.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "foo")
         
         jdm.delegate = self
         jdm.fetchSitesLists()
-        
-//        sitesTable.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "foo")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
@@ -46,28 +47,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let site = currentSites[indexPath.item]
         
-//        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("foo", forIndexPath: indexPath) as UITableViewCell
+        // to dequeueReusableCell need to either use the default style, or sub-class UITableViewCell to use a custom style by default
+        // let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("foo", forIndexPath: indexPath) as UITableViewCell
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "foo")
         
         cell.text = site.name
-        cell.detailTextLabel.text = site.domain ? site.domain : ""
+        cell.detailTextLabel.text = site.domain
         cell.textColor = colours[site.difficulty]
         
         return cell
     }
 
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        let site = currentSites[indexPath.item]
+        selectedSite = currentSites[indexPath.item]
+        let site = selectedSite!
         let alert = UIAlertView()
-        alert.title = site.name
-        alert.message = site.difficulty
-        alert.addButtonWithTitle("Ok, Cool")
+        alert.delegate = self
+        alert.title = "\(site.name) [\(site.difficulty)]"
+        alert.message = site.notes
+        alert.addButtonWithTitle("Cancel")
+        alert.addButtonWithTitle("Delete Me")
+        alert.cancelButtonIndex = 1
         alert.show()
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-    
+
 //    func sectionIndexTitlesForTableView(tableView: UITableView!) -> AnyObject[]! {
 ////        return ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+//        // any more characters, it hangs compiling?!
 //        return ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"]
 //    }
 //
@@ -75,8 +82,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        return 0
 //    }
     
+    func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex != alertView.cancelButtonIndex { return } // cancel button is really the Delete Me button, so it's bold
+        UIApplication.sharedApplication().openURL(NSURL(string: selectedSite!.url))
+        self.selectedSite = nil
+    }
+    
     func searchBar(searchBar: UISearchBar!, textDidChange searchText: String!) {
-        println(searchBar.text) // lowecaseString EXC_BAD_ACCESS ??!
+        println(searchBar.text) // .lowecaseString --> EXC_BAD_ACCESS ??!
         
         if searchText.isEmpty {
             currentSites = allSites
