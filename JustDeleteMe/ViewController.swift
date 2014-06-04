@@ -50,7 +50,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "foo")
         
         cell.text = site.name
-        cell.detailTextLabel.text = site.domain ? " \(site.domain)" : ""
+        cell.detailTextLabel.text = site.domain ? site.domain : ""
         cell.textColor = colours[site.difficulty]
         
         return cell
@@ -65,6 +65,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         alert.show()
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    
+//    func sectionIndexTitlesForTableView(tableView: UITableView!) -> AnyObject[]! {
+////        return ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+//        return ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"]
+//    }
+//
+//    func tableView(tableView: UITableView!, sectionForSectionIndexTitle title: String!, atIndex index: Int) -> Int {
+//        return 0
+//    }
     
     func searchBar(searchBar: UISearchBar!, textDidChange searchText: String!) {
         println(searchBar.text) // lowecaseString EXC_BAD_ACCESS ??!
