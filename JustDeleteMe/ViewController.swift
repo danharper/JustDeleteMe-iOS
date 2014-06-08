@@ -8,6 +8,12 @@
 
 import UIKit
 
+class SubtitledCell: UITableViewCell {
+    init(style: UITableViewCellStyle, reuseIdentifier: String!) {
+        super.init(style: .Subtitle, reuseIdentifier: reuseIdentifier)
+    }
+}
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, JustDeleteMeDelegate {
     
     @IBOutlet var searchBar : UISearchBar
@@ -32,8 +38,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "searchQuery:", name: "siteSearchQuery", object: nil)
         
-        // part of dequeueReusableCell..
-        // sitesTable.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "foo")
+         sitesTable.registerClass(SubtitledCell.classForCoder(), forCellReuseIdentifier: "foo")
         
         jdm.delegate = self
         jdm.fetchSitesLists()
@@ -57,9 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let site = currentSites[indexPath.item]
         
-        // to dequeueReusableCell need to either use the default style, or sub-class UITableViewCell to use a custom style by default
-        // let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("foo", forIndexPath: indexPath) as UITableViewCell
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "foo")
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("foo", forIndexPath: indexPath) as UITableViewCell
         
         cell.text = site.name
         cell.detailTextLabel.text = site.domain
