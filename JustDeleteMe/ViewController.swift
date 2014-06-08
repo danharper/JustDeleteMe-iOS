@@ -92,15 +92,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        return 0
 //    }
     
-    func searchBar(searchBar: UISearchBar!, textDidChange searchText: String!) {
-        println(searchBar.text) // .lowecaseString --> EXC_BAD_ACCESS ??!
-        
+    func searchBar(searchBar: UISearchBar!, textDidChange searchText: String!) {       
         if searchText.isEmpty {
             currentSites = allSites
         }
         else {
             currentSites = allSites.filter({
-                site in site.name.lowercaseString.hasPrefix(searchText)
+                site in site.name.bridgeToObjectiveC().rangeOfString(searchText, options: .CaseInsensitiveSearch).length > 0
             })
         }
         
