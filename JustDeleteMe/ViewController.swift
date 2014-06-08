@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, JustDeleteMeDelegate {
     
+    @IBOutlet var searchBar : UISearchBar
     @IBOutlet var sitesTable: UITableView
 
     var allSites: JDMSite[] = []
@@ -29,11 +30,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "searchQuery:", name: "siteSearchQuery", object: nil)
+        
         // part of dequeueReusableCell..
         // sitesTable.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "foo")
         
         jdm.delegate = self
         jdm.fetchSitesLists()
+    }
+    
+    func searchQuery(notification: NSNotification) {
+        var query: String = notification.userInfo["query"] as String
+        NSLog("Loaded with search query: \(query)")
+        searchBar.text = query
+        self.searchBar(searchBar, textDidChange: query)
     }
 
     override func didReceiveMemoryWarning() {

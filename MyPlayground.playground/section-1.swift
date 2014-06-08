@@ -12,7 +12,7 @@ domains += "Foo"
 
 domains.endIndex
 
-let url = "http://www.apple.com"
+let url = "http://www.apple.com?q=foobar.com"
 
 let domain = "444"
 
@@ -27,3 +27,7 @@ nsurl.host
 nsurl.host.hasPrefix("www.")
 
 nsurl.host.substringFromIndex(4)
+
+nsurl.query.substringFromIndex(2)
+
+

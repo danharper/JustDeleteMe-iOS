@@ -65,6 +65,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="480" height="480"/>
                     <connections>
+                        <outlet property="searchBar" destination="Uvg-cP-YIe" id="iFm-nU-gWN"/>
                         <outlet property="sitesTable" destination="xXS-WE-5fA" id="wrC-Tm-Rac"/>
                     </connections>
                 </viewController>
