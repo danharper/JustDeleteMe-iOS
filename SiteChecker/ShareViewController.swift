@@ -66,17 +66,8 @@ class ShareViewController: UIViewController, JustDeleteMeDelegate {
         }
     }
     
-    func didReceiveSites(sites: JDMSite[]) {
-        let url = lookupUrl
-        
-        var searched = sites.filter {
-            // NSRange in ObjC returns a structure with:
-            // .location - the index of the string in the substring
-            // .length - the length of the match
-            // In Swift, I'm getting something else, so having to bridge to ObjC instead
-            // From searching about, it's not just me who's confused...
-            site in url.bridgeToObjectiveC().rangeOfString(site.domain, options: .CaseInsensitiveSearch).length > 0
-        }
+    func didReceiveSites(sites: JDMSites) {       
+        var searched = sites.filter(byDomain: lookupUrl)
         
         self.loadingAlert.dismissViewControllerAnimated(true) {
             // Not entirely sure why I need to delay for 0, but reminds me of setTimeout 0 in JS

@@ -9,7 +9,33 @@
 import Foundation
 
 protocol JustDeleteMeDelegate {
-    func didReceiveSites(sites: JDMSite[])
+    func didReceiveSites(sites: JDMSites)
+}
+
+class JDMSites {
+    var items: JDMSite[] = []
+    
+    init(sites: JDMSite[] = []) {
+        items += sites
+    }
+    
+    // NSRange in ObjC returns a structure with:
+    // .location - the index of the string in the substring
+    // .length - the length of the match
+    // In Swift, I'm getting something else, so having to bridge to ObjC instead
+    // From searching about, it's not just me who's confused...
+    
+    func filter(#byName: String) -> JDMSite[] {
+        return items.filter({
+            site in site.name.bridgeToObjectiveC().rangeOfString(byName, options: .CaseInsensitiveSearch).length > 0
+        })
+    }
+    
+    func filter(#byDomain: String) -> JDMSite[] {
+        return items.filter({
+            site in byDomain.bridgeToObjectiveC().rangeOfString(site.domain, options: .CaseInsensitiveSearch).length > 0
+        })
+    }
 }
 
 class JDMSite {
@@ -43,13 +69,7 @@ class JustDeleteMe: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelega
     
     let url: NSURL = NSURL(string: "http://justdelete.me/sites.json")
     
-    
-    init() {
-        
-    }
-    
     func fetchSitesLists() {
-        NSLog("in here, going to start connection!")
         var request = NSURLRequest(URL: self.url)
         var connection = NSURLConnection(request: request, delegate: self, startImmediately: true)
     }
@@ -63,25 +83,15 @@ class JustDeleteMe: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelega
     }
     
     func connectionDidFinishLoading(connection: NSURLConnection!) {
-        NSLog("Got data...")
-        var error: NSError
         var response: NSArray = NSJSONSerialization.JSONObjectWithData(self.data, options: nil, error: nil) as NSArray
         
         var sites: JDMSite[] = []
         
         for data : AnyObject in response {
-//            var domain: String
-//            if  let domains : AnyObject! = data["domains"] {
-//                if domains is String[] {
-//                    let d = domains as String[]
-//                    domain = d[0]
-//                }
-//            }
-            
             var domains: String[] = []
             
-            if let dd = data["domains"] as? String[] {
-                domains += dd
+            if let d = data["domains"] as? String[] {
+                domains += d
             }
             
             var notes: String?
@@ -95,14 +105,7 @@ class JustDeleteMe: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelega
             )
         }
         
-        self.delegate?.didReceiveSites(sites)
-        
-//        if response.count > 0 {
-//            self.delegate?.didReceiveSites(response)
-//        }
-//        else {
-//            self.delegate?.didReceiveSites(NSArray())
-//        }
+        self.delegate?.didReceiveSites(JDMSites(sites: sites))
     }
     
 }

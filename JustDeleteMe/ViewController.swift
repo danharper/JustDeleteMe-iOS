@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet var searchBar : UISearchBar
     @IBOutlet var sitesTable: UITableView
 
-    var allSites: JDMSite[] = []
+    var allSites: JDMSites = JDMSites()
     var currentSites: JDMSite[] = []
     
     var selectedSite: JDMSite?
@@ -92,22 +92,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        return 0
 //    }
     
-    func searchBar(searchBar: UISearchBar!, textDidChange searchText: String!) {       
+    func searchBar(searchBar: UISearchBar!, textDidChange searchText: String!) {
         if searchText.isEmpty {
-            currentSites = allSites
+            currentSites = allSites.items
         }
         else {
-            currentSites = allSites.filter({
-                site in site.name.bridgeToObjectiveC().rangeOfString(searchText, options: .CaseInsensitiveSearch).length > 0
-            })
+            currentSites = allSites.filter(byName: searchText)
         }
         
         sitesTable.reloadData()
     }
     
-    func didReceiveSites(sites: JDMSite[]) {
+    func didReceiveSites(sites: JDMSites) {
         allSites = sites
-        currentSites = allSites
+        currentSites = allSites.items
         sitesTable.reloadData()
     }
 
