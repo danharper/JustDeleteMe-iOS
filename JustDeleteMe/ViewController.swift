@@ -18,10 +18,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet var searchBar : UISearchBar
     @IBOutlet var sitesTable: UITableView
+    
+    var jdm: JustDeleteMe = JustDeleteMe()
 
     var allSites: JDMSites = JDMSites()
     var currentSites: JDMSite[] = []
-    
     var selectedSite: JDMSite?
     
     var colours: Dictionary<String, UIColor> = [
@@ -30,8 +31,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         "hard": UIColor(red: 207/255, green: 90/255, blue: 90/255, alpha: 1),
         "impossible": UIColor(red: 43/255, green: 42/255, blue: 43/255, alpha: 1)
     ]
-    
-    var jdm: JustDeleteMe = JustDeleteMe()
                             
     override func viewDidLoad() {
         super.viewDidLoad()
