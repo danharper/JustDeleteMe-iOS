@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UIAlertViewDelegate, JustDeleteMeDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, JustDeleteMeDelegate {
     
     @IBOutlet var sitesTable: UITableView
 
@@ -59,17 +59,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         selectedSite = currentSites[indexPath.item]
         let site = selectedSite!
-        let alert = UIAlertView()
-        alert.delegate = self
-        alert.title = "\(site.name) [\(site.difficulty)]"
-        alert.message = site.notes
-        alert.addButtonWithTitle("Cancel")
-        alert.addButtonWithTitle("Delete Me")
-        alert.cancelButtonIndex = 1
-        alert.show()
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let a = UIAlertController(title: "\(site.name) - \(site.difficulty.uppercaseString)", message: site.description, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        a.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        a.addAction(UIAlertAction(title: "Open Safari", style: .Default, handler: { (alert) in
+            UIApplication.sharedApplication().openURL(NSURL(string: site.url)); return
+        }))
+        self.presentViewController(a, animated: true, completion: nil)
     }
 
 //    func sectionIndexTitlesForTableView(tableView: UITableView!) -> AnyObject[]! {
@@ -81,12 +81,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //    func tableView(tableView: UITableView!, sectionForSectionIndexTitle title: String!, atIndex index: Int) -> Int {
 //        return 0
 //    }
-    
-    func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int) {
-        if buttonIndex != alertView.cancelButtonIndex { return } // cancel button is really the Delete Me button, so it's bold
-        UIApplication.sharedApplication().openURL(NSURL(string: selectedSite!.url))
-        self.selectedSite = nil
-    }
     
     func searchBar(searchBar: UISearchBar!, textDidChange searchText: String!) {
         println(searchBar.text) // .lowecaseString --> EXC_BAD_ACCESS ??!

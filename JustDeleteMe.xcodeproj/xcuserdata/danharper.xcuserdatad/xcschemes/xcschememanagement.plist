@@ -9,6 +9,16 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>SiteChecker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>kok.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +28,16 @@
 			<true/>
 		</dict>
 		<key>64071009193E8E090039E590</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6451CF18193F981E0077A97C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>64DB0CDE1941061700E5ACD9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,6 +14,10 @@
 		64071005193E8E090039E590 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64071004193E8E090039E590 /* Images.xcassets */; };
 		64071011193E8E090039E590 /* JustDeleteMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64071010193E8E090039E590 /* JustDeleteMeTests.swift */; };
 		6407101B193E91800039E590 /* JustDeleteMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6407101A193E91800039E590 /* JustDeleteMe.swift */; };
+		64DB0CE41941061700E5ACD9 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DB0CE31941061700E5ACD9 /* ShareViewController.swift */; };
+		64DB0CE61941061700E5ACD9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64DB0CE51941061700E5ACD9 /* MainInterface.storyboard */; };
+		64DB0CE91941061700E5ACD9 /* me.danharper.JustDeleteMe.SiteChecker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 64DB0CDF1941061700E5ACD9 /* me.danharper.JustDeleteMe.SiteChecker.appex */; };
+		64DB8F20194279AA0035B390 /* JustDeleteMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6407101A193E91800039E590 /* JustDeleteMe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,7 +28,63 @@
 			remoteGlobalIDString = 64070FF4193E8E090039E590;
 			remoteInfo = JustDeleteMe;
 		};
+		64DB0CE71941061700E5ACD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64070FED193E8E090039E590 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64DB0CDE1941061700E5ACD9;
+			remoteInfo = SiteChecker;
+		};
+		64DB0CEA1941061700E5ACD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64070FED193E8E090039E590 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64DB0CDE1941061700E5ACD9;
+			remoteInfo = SiteChecker;
+		};
+		64DB0CEF1941093600E5ACD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64070FED193E8E090039E590 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64070FF4193E8E090039E590;
+			remoteInfo = JustDeleteMe;
+		};
+		64DB8F1D194279730035B390 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64070FED193E8E090039E590 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64070FF4193E8E090039E590;
+			remoteInfo = JustDeleteMe;
+		};
+		64DB8F22194325B70035B390 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64070FED193E8E090039E590 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64070FF4193E8E090039E590;
+			remoteInfo = JustDeleteMe;
+		};
+		64DB8F24194325B70035B390 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64070FED193E8E090039E590 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64070FF4193E8E090039E590;
+			remoteInfo = JustDeleteMe;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6451CF29193F981E0077A97C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				64DB0CE91941061700E5ACD9 /* me.danharper.JustDeleteMe.SiteChecker.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		64070FF5193E8E090039E590 /* JustDeleteMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustDeleteMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +98,11 @@
 		6407100F193E8E090039E590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64071010193E8E090039E590 /* JustDeleteMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDeleteMeTests.swift; sourceTree = "<group>"; };
 		6407101A193E91800039E590 /* JustDeleteMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JustDeleteMe.swift; sourceTree = "<group>"; };
+		64DB0CDF1941061700E5ACD9 /* me.danharper.JustDeleteMe.SiteChecker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = me.danharper.JustDeleteMe.SiteChecker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		64DB0CE21941061700E5ACD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64DB0CE31941061700E5ACD9 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		64DB0CE51941061700E5ACD9 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		64DB8F21194317A20035B390 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,14 +120,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		64DB0CDC1941061700E5ACD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		64070FEC193E8E090039E590 = {
 			isa = PBXGroup;
 			children = (
+				64DB8F21194317A20035B390 /* MyPlayground.playground */,
 				64070FF7193E8E090039E590 /* JustDeleteMe */,
 				6407100D193E8E090039E590 /* JustDeleteMeTests */,
+				64DB0CE01941061700E5ACD9 /* SiteChecker */,
 				64070FF6193E8E090039E590 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,6 +146,7 @@
 			children = (
 				64070FF5193E8E090039E590 /* JustDeleteMe.app */,
 				6407100A193E8E090039E590 /* JustDeleteMeTests.xctest */,
+				64DB0CDF1941061700E5ACD9 /* me.danharper.JustDeleteMe.SiteChecker.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,6 +190,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		64DB0CE01941061700E5ACD9 /* SiteChecker */ = {
+			isa = PBXGroup;
+			children = (
+				64DB0CE31941061700E5ACD9 /* ShareViewController.swift */,
+				64DB0CE51941061700E5ACD9 /* MainInterface.storyboard */,
+				64DB0CE11941061700E5ACD9 /* Supporting Files */,
+			);
+			name = SiteChecker;
+			path = SiteChecker;
+			sourceTree = "<group>";
+		};
+		64DB0CE11941061700E5ACD9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				64DB0CE21941061700E5ACD9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,10 +219,13 @@
 				64070FF1193E8E090039E590 /* Sources */,
 				64070FF2193E8E090039E590 /* Frameworks */,
 				64070FF3193E8E090039E590 /* Resources */,
+				6451CF29193F981E0077A97C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				64DB0CE81941061700E5ACD9 /* PBXTargetDependency */,
+				64DB0CEB1941061700E5ACD9 /* PBXTargetDependency */,
 			);
 			name = JustDeleteMe;
 			productName = JustDeleteMe;
@@ -147,11 +244,32 @@
 			);
 			dependencies = (
 				6407100C193E8E090039E590 /* PBXTargetDependency */,
+				64DB0CF01941093600E5ACD9 /* PBXTargetDependency */,
+				64DB8F23194325B70035B390 /* PBXTargetDependency */,
+				64DB8F25194325B70035B390 /* PBXTargetDependency */,
 			);
 			name = JustDeleteMeTests;
 			productName = JustDeleteMeTests;
 			productReference = 6407100A193E8E090039E590 /* JustDeleteMeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		64DB0CDE1941061700E5ACD9 /* SiteChecker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64DB0CEE1941061700E5ACD9 /* Build configuration list for PBXNativeTarget "SiteChecker" */;
+			buildPhases = (
+				64DB0CDB1941061700E5ACD9 /* Sources */,
+				64DB0CDC1941061700E5ACD9 /* Frameworks */,
+				64DB0CDD1941061700E5ACD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				64DB8F1E194279730035B390 /* PBXTargetDependency */,
+			);
+			name = SiteChecker;
+			productName = SiteChecker;
+			productReference = 64DB0CDF1941061700E5ACD9 /* me.danharper.JustDeleteMe.SiteChecker.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -168,6 +286,9 @@
 					64071009193E8E090039E590 = {
 						CreatedOnToolsVersion = 6.0;
 						TestTargetID = 64070FF4193E8E090039E590;
+					};
+					64DB0CDE1941061700E5ACD9 = {
+						CreatedOnToolsVersion = 6.0;
 					};
 				};
 			};
@@ -186,6 +307,7 @@
 			targets = (
 				64070FF4193E8E090039E590 /* JustDeleteMe */,
 				64071009193E8E090039E590 /* JustDeleteMeTests */,
+				64DB0CDE1941061700E5ACD9 /* SiteChecker */,
 			);
 		};
 /* End PBXProject section */
@@ -204,6 +326,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64DB0CDD1941061700E5ACD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64DB0CE61941061700E5ACD9 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +359,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		64DB0CDB1941061700E5ACD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64DB8F20194279AA0035B390 /* JustDeleteMe.swift in Sources */,
+				64DB0CE41941061700E5ACD9 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -236,6 +375,36 @@
 			isa = PBXTargetDependency;
 			target = 64070FF4193E8E090039E590 /* JustDeleteMe */;
 			targetProxy = 6407100B193E8E090039E590 /* PBXContainerItemProxy */;
+		};
+		64DB0CE81941061700E5ACD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64DB0CDE1941061700E5ACD9 /* SiteChecker */;
+			targetProxy = 64DB0CE71941061700E5ACD9 /* PBXContainerItemProxy */;
+		};
+		64DB0CEB1941061700E5ACD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64DB0CDE1941061700E5ACD9 /* SiteChecker */;
+			targetProxy = 64DB0CEA1941061700E5ACD9 /* PBXContainerItemProxy */;
+		};
+		64DB0CF01941093600E5ACD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64070FF4193E8E090039E590 /* JustDeleteMe */;
+			targetProxy = 64DB0CEF1941093600E5ACD9 /* PBXContainerItemProxy */;
+		};
+		64DB8F1E194279730035B390 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64070FF4193E8E090039E590 /* JustDeleteMe */;
+			targetProxy = 64DB8F1D194279730035B390 /* PBXContainerItemProxy */;
+		};
+		64DB8F23194325B70035B390 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64070FF4193E8E090039E590 /* JustDeleteMe */;
+			targetProxy = 64DB8F22194325B70035B390 /* PBXContainerItemProxy */;
+		};
+		64DB8F25194325B70035B390 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64070FF4193E8E090039E590 /* JustDeleteMe */;
+			targetProxy = 64DB8F24194325B70035B390 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -388,6 +557,32 @@
 			};
 			name = Release;
 		};
+		64DB0CEC1941061700E5ACD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SiteChecker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "me.danharper.JustDeleteMe.$(TARGET_NAME:rfc1034identifier)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		64DB0CED1941061700E5ACD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SiteChecker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "me.danharper.JustDeleteMe.$(TARGET_NAME:rfc1034identifier)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -414,6 +609,15 @@
 			buildConfigurations = (
 				64071018193E8E090039E590 /* Debug */,
 				64071019193E8E090039E590 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64DB0CEE1941061700E5ACD9 /* Build configuration list for PBXNativeTarget "SiteChecker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64DB0CEC1941061700E5ACD9 /* Debug */,
+				64DB0CED1941061700E5ACD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
