@@ -197,7 +197,6 @@
 				64DB0CE51941061700E5ACD9 /* MainInterface.storyboard */,
 				64DB0CE11941061700E5ACD9 /* Supporting Files */,
 			);
-			name = SiteChecker;
 			path = SiteChecker;
 			sourceTree = "<group>";
 		};

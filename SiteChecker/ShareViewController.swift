@@ -54,7 +54,7 @@ class ShareViewController: UIViewController, JustDeleteMeDelegate {
             shortUrl = shortUrl.substringFromIndex(4)
         }
         
-        loadingAlert.title = "Loading \(shortUrl)…"
+        loadingAlert.title = "Checking \(shortUrl)…"
         loadingAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel) { _ in self.closeExtension() })
         
         // I'd rather fetch sites _before_ the completion handler, but if I do this, the loadingAlert

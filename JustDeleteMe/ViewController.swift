@@ -78,7 +78,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let a = UIAlertController(title: "\(site.name) - \(site.difficulty.uppercaseString)", message: site.description, preferredStyle: UIAlertControllerStyle.ActionSheet)
         a.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        a.addAction(UIAlertAction(title: "Open Safari", style: .Default, handler: { (alert) in
+        a.addAction(UIAlertAction(title: "Delete My Account", style: .Destructive, handler: { (alert) in
             UIApplication.sharedApplication().openURL(NSURL(string: site.url)); return
         }))
         self.presentViewController(a, animated: true, completion: nil)
