@@ -100,7 +100,10 @@ class ShareViewController: UIViewController, JustDeleteMeDelegate {
         let alert = UIAlertController(title: title, message: site.description, preferredStyle: .ActionSheet)
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel) { _ in self.closeExtension() })
-        alert.addAction(UIAlertAction(title: "View in App", style: .Default) { _ in self.closeExtension() })
+        alert.addAction(UIAlertAction(title: "View in App", style: .Default) { _ in
+            UIApplication.sharedApplication().openURL(NSURL(string: "justdeleteme://?q=\(site.name)"))
+            self.closeExtension()
+        })
         
         alert.addAction(UIAlertAction(title: "Delete My Account", style: .Destructive) { _ in
             UIApplication.sharedApplication().openURL(NSURL(string: site.url))
