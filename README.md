@@ -10,6 +10,8 @@ Todo:
 
 The iOS8 extension should be named "Check Site", but the app name of "JustDeleteMe" is showing instead, which is slightly too long. This _is a known iOS bug_, should be fixed during later beta releases.
 
+Extension is currently a 'Share' extension, instead of an 'Action' like it should be. If it's an Action, the extension takes up the entire screen, however with a Share extension we can have our Alert views overlay Safari.
+
 
 ### App Previews
 
