@@ -6,6 +6,7 @@ iOS App for JustDeleteMe (written in Swift)
 Todo:
 
 * Status bar is pushed against content
+* Real logo (all white, just 'Delete' in red) in nav bar
 
 The iOS8 extension should be named "Check Site", but the app name of "JustDeleteMe" is showing instead, which is slightly too long. This _is a known iOS bug_, should be fixed during later beta releases.
 
