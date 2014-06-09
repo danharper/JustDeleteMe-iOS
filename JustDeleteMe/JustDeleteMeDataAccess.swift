@@ -34,13 +34,16 @@ class JustDeleteMeDataAccess: NSObject, NSURLConnectionDelegate, NSURLConnection
     }
     
     func connectionDidFinishLoading(connection: NSURLConnection!) {
-        var response: NSArray = NSJSONSerialization.JSONObjectWithData(self.data, options: nil, error: nil) as NSArray
+        let response = NSJSONSerialization.JSONObjectWithData(self.data, options: nil, error: nil) as AnyObject[]
         
-        var sites: JDMSite[] = []
-        
-        for data : AnyObject in response {
-            var domains: String[] = []
+        let sites: JDMSite[] = response.map { data in
+            let name = data["name"] as String
             
+            let url = NSURL(string: data["url"] as String)
+            
+            let difficulty = data["difficulty"] as String
+            
+            var domains: String[] = []
             if let d = data["domains"] as? String[] {
                 domains += d
             }
@@ -50,11 +53,7 @@ class JustDeleteMeDataAccess: NSObject, NSURLConnectionDelegate, NSURLConnection
                 notes = n
             }
             
-            let url = NSURL(string: data["url"] as String)
-            
-            sites += JDMSite(
-                name: data["name"] as String, url: url, difficulty: data["difficulty"] as String, domains: domains, notes: notes
-            )
+            return JDMSite(name: name, url: url, difficulty: difficulty, domains: domains, notes: notes)
         }
         
         self.delegate?.didReceiveSites(sites)

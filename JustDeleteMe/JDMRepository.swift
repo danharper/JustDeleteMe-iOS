@@ -9,6 +9,11 @@
 import Foundation
 
 extension String {
+    // NSRange in ObjC returns a structure with:
+    // .location - the index of the string in the substring
+    // .length - the length of the match
+    // In Swift, I'm getting something else, so having to bridge to ObjC instead
+    // From searching about, it's not just me who's confused...
     func __contains(contains: String) -> Bool {
         return self.bridgeToObjectiveC().rangeOfString(contains, options: .CaseInsensitiveSearch).length > 0
     }
@@ -16,8 +21,8 @@ extension String {
 
 class JDMRepository: JustDeleteMeDataAccessDelegate {
     
+    let dataAccess = JustDeleteMeDataAccess()
     var items: JDMSite[] = []
-    var dataAccess = JustDeleteMeDataAccess()
     var handler: ((JDMSite[]) -> ())?
     
     init() {
@@ -35,24 +40,20 @@ class JDMRepository: JustDeleteMeDataAccessDelegate {
     }
     
     func find(byName searchTerm: String, handler: (JDMSite[]) -> ()) {
-        self.all {
-            sites in
-            let searched = sites.filter({
-                site in searchTerm.isEmpty || site.name.__contains(searchTerm)
-                })
+        self.all { sites in
+            let searched = sites.filter { searchTerm.isEmpty || $0.name.__contains(searchTerm) }
             handler(searched)
         }
     }
     
     func find(byDomain searchTerm: String, handler: (JDMSite[]) -> ()) {
-        self.all {
-            sites in
-            let searched = sites.filter({
-                site in searchTerm.__contains(site.domain)
-                })
+        self.all { sites in
+            let searched = sites.filter { searchTerm.__contains($0.domain) }
             handler(searched)
         }
     }
+    
+    // MARK: JustDeleteMeDataAccessDelegate
     
     func didReceiveSites(sites: JDMSite[]) {
         items = sites
