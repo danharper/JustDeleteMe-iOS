@@ -30,4 +30,6 @@ nsurl.host.substringFromIndex(4)
 
 nsurl.query.substringFromIndex(2)
 
+nsurl.absoluteString
+
 

@@ -14,16 +14,14 @@ class SubtitledCell: UITableViewCell {
     }
 }
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, JustDeleteMeDelegate {
+class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, SiteDetailsViewDelegate {
     
     @IBOutlet var searchBar : UISearchBar
     @IBOutlet var sitesTable: UITableView
     
-    var jdm: JustDeleteMe = JustDeleteMe()
+    var jdm: JDMRepository = JDMRepository()
 
-    var allSites: JDMSites = JDMSites()
     var currentSites: JDMSite[] = []
-    var selectedSite: JDMSite?
     
     var colours: Dictionary<String, UIColor> = [
         "easy": UIColor(red: 123/255, green: 172/255, blue: 123/255, alpha: 1),
@@ -35,13 +33,44 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Listen for external searches (e.g. via justdeleteme://q?=)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "searchQuery:", name: "siteSearchQuery", object: nil)
         
-         sitesTable.registerClass(SubtitledCell.classForCoder(), forCellReuseIdentifier: "foo")
+        // Register custom cell to be reusable
+        sitesTable.registerClass(SubtitledCell.classForCoder(), forCellReuseIdentifier: "foo")
         
-        jdm.delegate = self
-        jdm.fetchSitesLists()
+        // Fetch data and load into list
+        jdm.all { sites in
+            self.currentSites = sites
+            self.sitesTable.reloadData()
+        }
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: Data
+    
+    func searchSites(query: String) {
+        jdm.find(byName: query) { sites in
+            self.currentSites = sites
+            self.sitesTable.reloadData()
+        }
+    }
+    
+    func displaySite(site: JDMSite) {
+        let alert = SiteDetailsViewController(site: site)
+        alert.delegate = self
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func openDeletePage(site: JDMSite) {
+        UIApplication.sharedApplication().openURL(site.url)
+    }
+    
+    // MARK: NotificationCenter Query Listener
     
     func searchQuery(notification: NSNotification) {
         var query: String = notification.userInfo["query"] as String
@@ -49,10 +78,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         searchBar.text = query
         self.searchBar(searchBar, textDidChange: query)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    
+    // MARK: UISearchBarDelegate
+    
+    func searchBar(searchBar: UISearchBar!, textDidChange searchText: String!) {
+        self.searchSites(searchText)
     }
+    
+    // MARK: UITableViewDataSource
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return currentSites.count
@@ -69,47 +102,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         return cell
     }
+    
+    // MARK: UITableViewDelegate
 
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        selectedSite = currentSites[indexPath.item]
-        let site = selectedSite!
-        
-        let a = UIAlertController(title: "\(site.name) - \(site.difficulty.uppercaseString)", message: site.description, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        a.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        a.addAction(UIAlertAction(title: "Delete My Account", style: .Destructive, handler: { (alert) in
-            UIApplication.sharedApplication().openURL(NSURL(string: site.url)); return
-        }))
-        self.presentViewController(a, animated: true, completion: nil)
+        self.displaySite(currentSites[indexPath.item])
+    }
+    
+    // MARK: SiteDetailsViewDelegate
+    
+    func siteDetailsDidClose() {}
+    
+    func viewSiteDetails(site: JDMSite) {}
+    
+    func openSiteDetails(site: JDMSite) {
+        self.openDeletePage(site)
     }
 
-//    func sectionIndexTitlesForTableView(tableView: UITableView!) -> AnyObject[]! {
-////        return ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-//        // any more characters, it hangs compiling?!
-//        return ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"]
-//    }
-//
-//    func tableView(tableView: UITableView!, sectionForSectionIndexTitle title: String!, atIndex index: Int) -> Int {
-//        return 0
-//    }
-    
-    func searchBar(searchBar: UISearchBar!, textDidChange searchText: String!) {
-        if searchText.isEmpty {
-            currentSites = allSites.items
-        }
-        else {
-            currentSites = allSites.filter(byName: searchText)
-        }
-        
-        sitesTable.reloadData()
-    }
-    
-    func didReceiveSites(sites: JDMSites) {
-        allSites = sites
-        currentSites = allSites.items
-        sitesTable.reloadData()
-    }
 
 
 }

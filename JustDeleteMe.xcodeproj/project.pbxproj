@@ -13,11 +13,17 @@
 		64071003193E8E090039E590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64071001193E8E090039E590 /* Main.storyboard */; };
 		64071005193E8E090039E590 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64071004193E8E090039E590 /* Images.xcassets */; };
 		64071011193E8E090039E590 /* JustDeleteMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64071010193E8E090039E590 /* JustDeleteMeTests.swift */; };
-		6407101B193E91800039E590 /* JustDeleteMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6407101A193E91800039E590 /* JustDeleteMe.swift */; };
+		643123AD19452850001452CB /* JDMSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643123AC19452850001452CB /* JDMSite.swift */; };
+		643123AE19452952001452CB /* JDMSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643123AC19452850001452CB /* JDMSite.swift */; };
+		643123B11945323F001452CB /* JDMRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643123B01945323F001452CB /* JDMRepository.swift */; };
+		643123B21945323F001452CB /* JDMRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643123B01945323F001452CB /* JDMRepository.swift */; };
+		643123B41945325D001452CB /* JustDeleteMeDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643123B31945325D001452CB /* JustDeleteMeDataAccess.swift */; };
+		643123B51945325D001452CB /* JustDeleteMeDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643123B31945325D001452CB /* JustDeleteMeDataAccess.swift */; };
+		643123B819453379001452CB /* SiteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643123B719453379001452CB /* SiteDetailsViewController.swift */; };
+		643123B919453379001452CB /* SiteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643123B719453379001452CB /* SiteDetailsViewController.swift */; };
 		64DB0CE41941061700E5ACD9 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DB0CE31941061700E5ACD9 /* ShareViewController.swift */; };
 		64DB0CE61941061700E5ACD9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64DB0CE51941061700E5ACD9 /* MainInterface.storyboard */; };
 		64DB0CE91941061700E5ACD9 /* me.danharper.JustDeleteMe.SiteChecker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 64DB0CDF1941061700E5ACD9 /* me.danharper.JustDeleteMe.SiteChecker.appex */; };
-		64DB8F20194279AA0035B390 /* JustDeleteMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6407101A193E91800039E590 /* JustDeleteMe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +103,10 @@
 		6407100A193E8E090039E590 /* JustDeleteMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustDeleteMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6407100F193E8E090039E590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64071010193E8E090039E590 /* JustDeleteMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDeleteMeTests.swift; sourceTree = "<group>"; };
-		6407101A193E91800039E590 /* JustDeleteMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JustDeleteMe.swift; sourceTree = "<group>"; };
+		643123AC19452850001452CB /* JDMSite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDMSite.swift; sourceTree = "<group>"; };
+		643123B01945323F001452CB /* JDMRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDMRepository.swift; sourceTree = "<group>"; };
+		643123B31945325D001452CB /* JustDeleteMeDataAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JustDeleteMeDataAccess.swift; sourceTree = "<group>"; };
+		643123B719453379001452CB /* SiteDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteDetailsViewController.swift; sourceTree = "<group>"; };
 		64DB0CDF1941061700E5ACD9 /* me.danharper.JustDeleteMe.SiteChecker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = me.danharper.JustDeleteMe.SiteChecker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		64DB0CE21941061700E5ACD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64DB0CE31941061700E5ACD9 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -133,10 +142,12 @@
 		64070FEC193E8E090039E590 = {
 			isa = PBXGroup;
 			children = (
+				643123B619453364001452CB /* JustDeleteMeCommon */,
 				64DB8F21194317A20035B390 /* MyPlayground.playground */,
-				64070FF7193E8E090039E590 /* JustDeleteMe */,
+				643123A9194527E6001452CB /* JustDeleteMeData */,
+				64070FF7193E8E090039E590 /* JustDeleteMeApp */,
 				6407100D193E8E090039E590 /* JustDeleteMeTests */,
-				64DB0CE01941061700E5ACD9 /* SiteChecker */,
+				64DB0CE01941061700E5ACD9 /* JustDeleteMeSiteCheckerExtension */,
 				64070FF6193E8E090039E590 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -151,7 +162,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		64070FF7193E8E090039E590 /* JustDeleteMe */ = {
+		64070FF7193E8E090039E590 /* JustDeleteMeApp */ = {
 			isa = PBXGroup;
 			children = (
 				64070FFA193E8E090039E590 /* AppDelegate.swift */,
@@ -160,8 +171,8 @@
 				64071004193E8E090039E590 /* Images.xcassets */,
 				64070FFC193E8E090039E590 /* JustDeleteMe.xcdatamodeld */,
 				64070FF8193E8E090039E590 /* Supporting Files */,
-				6407101A193E91800039E590 /* JustDeleteMe.swift */,
 			);
+			name = JustDeleteMeApp;
 			path = JustDeleteMe;
 			sourceTree = "<group>";
 		};
@@ -190,13 +201,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		64DB0CE01941061700E5ACD9 /* SiteChecker */ = {
+		643123A9194527E6001452CB /* JustDeleteMeData */ = {
+			isa = PBXGroup;
+			children = (
+				643123AC19452850001452CB /* JDMSite.swift */,
+				643123B01945323F001452CB /* JDMRepository.swift */,
+				643123B31945325D001452CB /* JustDeleteMeDataAccess.swift */,
+			);
+			name = JustDeleteMeData;
+			path = JustDeleteMe;
+			sourceTree = "<group>";
+		};
+		643123B619453364001452CB /* JustDeleteMeCommon */ = {
+			isa = PBXGroup;
+			children = (
+				643123B719453379001452CB /* SiteDetailsViewController.swift */,
+			);
+			name = JustDeleteMeCommon;
+			sourceTree = "<group>";
+		};
+		64DB0CE01941061700E5ACD9 /* JustDeleteMeSiteCheckerExtension */ = {
 			isa = PBXGroup;
 			children = (
 				64DB0CE31941061700E5ACD9 /* ShareViewController.swift */,
 				64DB0CE51941061700E5ACD9 /* MainInterface.storyboard */,
 				64DB0CE11941061700E5ACD9 /* Supporting Files */,
 			);
+			name = JustDeleteMeSiteCheckerExtension;
 			path = SiteChecker;
 			sourceTree = "<group>";
 		};
@@ -343,10 +374,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6407101B193E91800039E590 /* JustDeleteMe.swift in Sources */,
+				643123AD19452850001452CB /* JDMSite.swift in Sources */,
 				64071000193E8E090039E590 /* ViewController.swift in Sources */,
 				64070FFE193E8E090039E590 /* JustDeleteMe.xcdatamodeld in Sources */,
 				64070FFB193E8E090039E590 /* AppDelegate.swift in Sources */,
+				643123B41945325D001452CB /* JustDeleteMeDataAccess.swift in Sources */,
+				643123B11945323F001452CB /* JDMRepository.swift in Sources */,
+				643123B819453379001452CB /* SiteDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +396,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64DB8F20194279AA0035B390 /* JustDeleteMe.swift in Sources */,
+				643123AE19452952001452CB /* JDMSite.swift in Sources */,
+				643123B51945325D001452CB /* JustDeleteMeDataAccess.swift in Sources */,
+				643123B919453379001452CB /* SiteDetailsViewController.swift in Sources */,
+				643123B21945323F001452CB /* JDMRepository.swift in Sources */,
 				64DB0CE41941061700E5ACD9 /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

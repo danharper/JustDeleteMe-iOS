@@ -12,10 +12,9 @@ import Social
 import JustDeleteMe
 import MobileCoreServices
 
-class ShareViewController: UIViewController, JustDeleteMeDelegate {
+class ShareViewController: UIViewController, SiteDetailsViewDelegate {
     
-    let jdm = JustDeleteMe()
-    var lookupUrl: String = ""
+    let jdm = JDMRepository()
     
     var urlAttachmentProvider: NSItemProvider?
     
@@ -31,24 +30,20 @@ class ShareViewController: UIViewController, JustDeleteMeDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        jdm.delegate = self
-        
         if let provider = urlAttachmentProvider {
-            provider.loadItemForTypeIdentifier("public.url", options: nil) {
-                (item, error) in
-            
-                self.lookupUrl = "\(item)"
-            
-                self.displayLoading()
+            provider.loadItemForTypeIdentifier("public.url", options: nil) { item, error in
+                self.displayLoading(item as NSURL)
             }
         }
         else {
             self.closeExtension()
         }
     }
+    
+    // MARK: Start
         
-    func displayLoading() {
-        var shortUrl = NSURL(string: lookupUrl).host
+    func displayLoading(url: NSURL) {
+        var shortUrl = url.host
         
         if (shortUrl.hasPrefix("www.")) {
             shortUrl = shortUrl.substringFromIndex(4)
@@ -62,55 +57,63 @@ class ShareViewController: UIViewController, JustDeleteMeDelegate {
         // view controller which isn't fully animated in yet?
         
         self.presentViewController(loadingAlert, animated: true) {
-            self.jdm.fetchSitesLists() // delegates to didReceiveSites:sites
+            self.jdm.find(byDomain: url.absoluteString) {
+                sites in self.foundMatchingSites(sites)
+            }
         }
     }
     
-    func didReceiveSites(sites: JDMSites) {       
-        var searched = sites.filter(byDomain: lookupUrl)
-        
+    // MARK: Find/Found/Not Found
+    
+    func foundMatchingSites(matches: JDMSite[]) {
         self.loadingAlert.dismissViewControllerAnimated(true) {
             // Not entirely sure why I need to delay for 0, but reminds me of setTimeout 0 in JS
             // Guessing the stack needs time to clear, but I'm sure there must be a cleaner way of displaying
             // a different view controller immediately after one closes?
             // Seems horrible to have to revert to C function calls (see inside delayForSeconds)
             self.delayForSeconds(0) {
-                if searched.count > 0 {
-                    self.displaySiteDetailsAlert(searched[0]);
+                if matches.count > 0 {
+                    self.displaySiteDetails(matches[0]);
                 }
                 else {
-                    self.displayNotFoundAlert()
+                    self.displayNotFound()
                 }
             }
         }
     }
     
-    func displaySiteDetailsAlert(site: JDMSite) {
-        let title = "\(site.name) - \(site.difficulty.uppercaseString)"
-        
-        let alert = UIAlertController(title: title, message: site.description, preferredStyle: .ActionSheet)
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel) { _ in self.closeExtension() })
-        alert.addAction(UIAlertAction(title: "View in App", style: .Default) { _ in
-            UIApplication.sharedApplication().openURL(NSURL(string: "justdeleteme://?q=\(site.name)"))
-            self.closeExtension()
-        })
-        
-        alert.addAction(UIAlertAction(title: "Delete My Account", style: .Destructive) { _ in
-            UIApplication.sharedApplication().openURL(NSURL(string: site.url))
-            self.closeExtension()
-        })
+    func displaySiteDetails(site: JDMSite) {
+        let alert = SiteDetailsViewController(site: site, isExternal: true)
+        alert.delegate = self
         
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    func displayNotFoundAlert() {
+    func displayNotFound() {
         let alert = UIAlertController(title: "Not Found", message: "Information not known for current site", preferredStyle: .Alert)
         
         alert.addAction(UIAlertAction(title: "Close", style: .Cancel) { _ in self.closeExtension() })
         
         self.presentViewController(alert, animated: true, completion: nil)
     }
+    
+    // MARK: SiteDetailsViewDelegate
+    
+    func siteDetailsDidClose() {
+        self.closeExtension()
+    }
+    
+    func viewSiteDetails(site: JDMSite) {
+        UIApplication.sharedApplication().openURL(NSURL(string: "justdeleteme://?q=\(site.name)"))
+        self.closeExtension()
+    }
+    
+    func openSiteDetails(site: JDMSite) {
+        UIApplication.sharedApplication().openURL(site.url)
+        self.closeExtension()
+    }
+    
+    // MARK: Helpers
     
     func closeExtension() {
         self.extensionContext.completeRequestReturningItems(nil, completionHandler: nil)
