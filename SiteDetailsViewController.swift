@@ -9,36 +9,31 @@
 import Foundation
 import UIKit
 
-protocol SiteDetailsViewDelegate {
-    // TODO: Better delegate names
-    func siteDetailsDidClose()
-    func viewSiteDetails(site: JDMSite)
-    func openSiteDetails(site: JDMSite)
-}
-
 class SiteDetailsViewController: UIAlertController {
     
-    var delegate: SiteDetailsViewDelegate?
+    convenience init(site: JDMSite, completion: ((site: JDMSite) -> Void)? = nil) {
+        self.init(site: site, isExternal: false, completion: completion)
+    }
     
-    convenience init(site: JDMSite, isExternal: Bool = false) {
+    convenience init(site: JDMSite, isExternal: Bool, completion: ((site: JDMSite) -> Void)? = nil) {
         self.init()
         
         let title = "\(site.name) - \(site.difficulty.uppercaseString)"
         
         self.init(title: title, message: site.description, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
-        self.addAction(UIAlertAction(title: "Cancel", style: .Cancel) { _ in
-            self.delegate!.siteDetailsDidClose()
-        })
+        self.addAction(UIAlertAction(title: "Cancel", style: .Cancel) { _ in completion?(site: site); return })
         
         if isExternal {
             self.addAction(UIAlertAction(title: "View in App", style: .Default) { _ in
-                self.delegate!.viewSiteDetails(site)
+                UIApplication.sharedApplication().openURL(NSURL(string: "justdeleteme://?q=\(site.name)"))
+                completion?(site: site)
             })
         }
         
         self.addAction(UIAlertAction(title: "Delete My Account", style: .Destructive) { _ in
-            self.delegate!.openSiteDetails(site)
+            UIApplication.sharedApplication().openURL(site.url)
+            completion?(site: site)
         })
     }
     

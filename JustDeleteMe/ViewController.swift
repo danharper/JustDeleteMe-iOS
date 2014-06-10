@@ -14,7 +14,7 @@ class SubtitledCell: UITableViewCell {
     }
 }
 
-class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, SiteDetailsViewDelegate {
+class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var searchBar : UISearchBar
     @IBOutlet var sitesTable: UITableView
@@ -61,13 +61,8 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
     
     func displaySite(site: JDMSite) {
         let alert = SiteDetailsViewController(site: site)
-        alert.delegate = self
         
         self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    func openDeletePage(site: JDMSite) {
-        UIApplication.sharedApplication().openURL(site.url)
     }
     
     // MARK: NotificationCenter Query Listener
@@ -110,18 +105,6 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         
         self.displaySite(currentSites[indexPath.item])
     }
-    
-    // MARK: SiteDetailsViewDelegate
-    
-    func siteDetailsDidClose() {}
-    
-    func viewSiteDetails(site: JDMSite) {}
-    
-    func openSiteDetails(site: JDMSite) {
-        self.openDeletePage(site)
-    }
-
-
 
 }
 

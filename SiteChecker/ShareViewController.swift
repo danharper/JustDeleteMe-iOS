@@ -12,7 +12,7 @@ import Social
 import JustDeleteMe
 import MobileCoreServices
 
-class ShareViewController: UIViewController, SiteDetailsViewDelegate {
+class ShareViewController: UIViewController {
     
     let jdm = JDMRepository()
     
@@ -83,9 +83,7 @@ class ShareViewController: UIViewController, SiteDetailsViewDelegate {
     }
     
     func displaySiteDetails(site: JDMSite) {
-        let alert = SiteDetailsViewController(site: site, isExternal: true)
-        alert.delegate = self
-        
+        let alert = SiteDetailsViewController(site: site, isExternal: true) { _ in self.closeExtension() }
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
@@ -95,22 +93,6 @@ class ShareViewController: UIViewController, SiteDetailsViewDelegate {
         alert.addAction(UIAlertAction(title: "Close", style: .Cancel) { _ in self.closeExtension() })
         
         self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    // MARK: SiteDetailsViewDelegate
-    
-    func siteDetailsDidClose() {
-        self.closeExtension()
-    }
-    
-    func viewSiteDetails(site: JDMSite) {
-        UIApplication.sharedApplication().openURL(NSURL(string: "justdeleteme://?q=\(site.name)"))
-        self.closeExtension()
-    }
-    
-    func openSiteDetails(site: JDMSite) {
-        UIApplication.sharedApplication().openURL(site.url)
-        self.closeExtension()
     }
     
     // MARK: Helpers
