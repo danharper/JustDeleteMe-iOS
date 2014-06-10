@@ -123,9 +123,7 @@ class ShareViewController: UIViewController, SiteDetailsViewDelegate {
         // Dispatch back onto current queue after x seconds
         let delay = seconds * Double(NSEC_PER_SEC)
         var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_current_queue()) {
-            completion()
-        }
+        dispatch_after(time, dispatch_get_current_queue(), completion)
     }
     
 }
