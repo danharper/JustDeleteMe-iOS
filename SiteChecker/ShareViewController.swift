@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import Social
-import JustDeleteMe
 import MobileCoreServices
 
 class ShareViewController: UIViewController {
